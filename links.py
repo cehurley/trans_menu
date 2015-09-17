@@ -9,7 +9,7 @@ class TransparentAwareFrame(wx.Frame):
     def __init__(self, *args, **kwargs):
         wx.Frame.__init__(self, *args, **kwargs)
         self.transparency = 250
-        self.background_color = '#444444'
+        self.background_color = '#888888'
 
     def SetTransparent(self, value):
         self.transparency = value
@@ -22,9 +22,9 @@ class LinkBox(TransparentAwareFrame):
     def __init__(self, *args, **kwargs):
         links = kwargs.pop('links')
         trans = kwargs.pop('trans')
-        self.mode, self.width_sub = kwargs.pop('mode')
+        self.mode, self.width = kwargs.pop('mode')
         TransparentAwareFrame.__init__(self, *args, **kwargs)
-        #self.SetBackgroundColour(self.background_color)
+        self.SetBackgroundColour(self.background_color)
         
         self.SetTransparent(self.GetTransparent())
         
@@ -38,6 +38,7 @@ class LinkBox(TransparentAwareFrame):
         row_size = self.mode
         x,y = 10,10
         curnum = 0
+	total = 0
         for o in links:
             print 'pfdsfsdfsfsdfsfsdfsdfsdfsdfsdfsdfsdfsfd'
             print o
@@ -55,6 +56,7 @@ class LinkBox(TransparentAwareFrame):
             x+=260
             #titleSizer.Add( a, 0, wx.ALL, 5 )
             curnum += 1
+	    total += 1
             if curnum == row_size:
                 y+=80
                 x = 10
@@ -65,8 +67,10 @@ class LinkBox(TransparentAwareFrame):
             #bSizer.Add(titleSizer, 0, wx.EXPAND)
             
         if y == 10:
-            y = 82
-        self.SetSize((800,y))
+            y = 90
+	if total < self.mode:
+	    self.width = (250*total)+(10*(total+1))
+        self.SetSize((self.width,y))
         self.Show()
         #self.SetSizer( bSizer )
         #bSizer.Fit(self)

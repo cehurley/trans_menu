@@ -9,7 +9,7 @@ class TransparentAwareFrame(wx.Frame):
     def __init__(self, *args, **kwargs):
         wx.Frame.__init__(self, *args, **kwargs)
         self.transparency = 240
-        self.background_color = '#CCCCCC'
+        self.background_color = '#888888'
 
     def SetTransparent(self, value):
         self.transparency = value

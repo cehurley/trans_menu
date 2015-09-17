@@ -32,9 +32,9 @@ class TransMenu(object):
     def setMode(self, mode, trans):
         self.mode = mode
         if mode == 4:
-            self.width_sub = 360
+            self.width = 1050 
         elif mode == 3:
-            self.width_sub = 525
+            self.width = 800
         self.trans = trans
 
     def change_category(self, msg):
@@ -43,8 +43,9 @@ class TransMenu(object):
         if hasattr(self, 'drilldown') == True:
             self.drilldown.Destroy()
         display_width, display_height = wx.GetDisplaySize()
-        self.drilldown = LinkBox(None, style = style, pos=(200, 20), size=(800,500),
-                                 links=self.cat_tree[msg]['items'], mode=(self.mode, self.width_sub),
+        self.drilldown = LinkBox(None, style = style, pos=(200, 20), #size=(800,500),
+			         size=(self.width, display_height),
+                                 links=self.cat_tree[msg]['items'], mode=(self.mode, self.width),
                                  trans=self.trans) #size=(600, display_height),size=(display_width-self.width_sub, display_height),
         self.drilldown.SetTransparent(self.trans)
         self.drilldown.registerListener(self.launch_app)
@@ -57,6 +58,8 @@ class TransMenu(object):
             subprocess.Popen([command], shell=True)
         else:
             subprocess.Popen([command], shell=True)
+	self.drilldown.Destroy()
+	del self.drilldown
 
     def clear_selection(self, msg):
         pass
@@ -67,5 +70,5 @@ class TransMenu(object):
 if __name__ == '__main__':
     d = TransMenu()
     #set Mode num columns, transparency
-    d.setMode(3,245)
+    d.setMode(4,248)
     d.boot()
