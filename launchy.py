@@ -25,7 +25,7 @@ class TransMenu(object):
         self.data = mm_menus.getAll()
         style = ( wx.NO_BORDER )
         display_width, display_height = wx.GetDisplaySize()
-        self.back = LeftNav(None, style = style, pos=(0, 0),size=(160, display_height), data= self.data)
+        self.back = LeftNav(None, title='LEFTNAV', style = style, pos=(0, 0),size=(160, display_height), data= self.data)
         self.back.registerListener(self.change_category)
         self.app.MainLoop()
 
