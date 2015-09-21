@@ -25,14 +25,14 @@ class TransMenu(object):
         self.data = mm_menus.getAll()
         style = ( wx.NO_BORDER )
         display_width, display_height = wx.GetDisplaySize()
-        self.back = LeftNav(None, style = style, pos=(0, 0),size=(180, display_height), data= self.data)
+        self.back = LeftNav(None, style = style, pos=(0, 0),size=(160, display_height), data= self.data)
         self.back.registerListener(self.change_category)
         self.app.MainLoop()
 
     def setMode(self, mode, trans):
         self.mode = mode
         if mode == 4:
-            self.width = 1050 
+            self.width = 860
         elif mode == 3:
             self.width = 800
         self.trans = trans
@@ -43,7 +43,7 @@ class TransMenu(object):
         if hasattr(self, 'drilldown') == True:
             self.drilldown.Destroy()
         display_width, display_height = wx.GetDisplaySize()
-        self.drilldown = LinkBox(None, style = style, pos=(200, 20), #size=(800,500),
+        self.drilldown = LinkBox(None, style = style, pos=(162, 20), #size=(800,500),
 			         size=(self.width, display_height),
                                  links=self.cat_tree[msg]['items'], mode=(self.mode, self.width),
                                  trans=self.trans) #size=(600, display_height),size=(display_width-self.width_sub, display_height),
