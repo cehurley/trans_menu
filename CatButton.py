@@ -115,7 +115,7 @@ class CatButton(wx.lib.agw.gradientbutton.GradientButton):
 
         #gc.SetPen(wx.WHITE_PEN)
 
-        if len(label) <= 15:
+        if len(label) <= 16:
             gc.DrawText(label, 44, 14)
         else:
             temp = label.split()
@@ -124,15 +124,15 @@ class CatButton(wx.lib.agw.gradientbutton.GradientButton):
             for i in temp:
                 ns += i +' '
                 x += 1
-                if len(ns) > 20:
+                if len(ns) > 10:
                     break
 
             nse = ' '.join(temp[x:])
-            print nse
+            #print nse
             tw1, th1 = gc.GetTextExtent(ns)
             tw2, th2 = gc.GetTextExtent(nse)
             gc.DrawText(ns, 44,8)
-            gc.DrawText(nse, 44,16)
+            gc.DrawText(nse, 44,20)
 
 
 

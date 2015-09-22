@@ -36,6 +36,7 @@ class LinkBox(TransparentAwareFrame):
         curnum = 0
         total = 0
         for o in links:
+            print o['title']
             i = o['icon']
             curimage = mm_menus.clean_cat_path(i)
             icon = wx.Image(curimage, wx.BITMAP_TYPE_ANY)
@@ -63,6 +64,8 @@ class LinkBox(TransparentAwareFrame):
             
         if y == 10:
             y = 120
+        if curnum > 0 and total%self.mode > 0 and total > 3:
+            y+=120
         if total < self.mode:
             self.width = (200*total)+(10*(total+1))
         self.SetSize((self.width,y))

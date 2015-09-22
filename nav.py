@@ -30,7 +30,7 @@ class LeftNav(TransparentAwareFrame):
         self.Bind(wx.EVT_LEFT_UP, self.OnLeftClick)
         self.refocus_method = None
         display_width, display_height = wx.GetDisplaySize()
-        panel = wx.lib.scrolledpanel.ScrolledPanel(self,-1, size=(160,display_height),
+        panel = wx.lib.scrolledpanel.ScrolledPanel(self,-1, size=(200,display_height),
                                                    pos=(0,0),
                                                    style=(wx.NO_BORDER | wx.EXPAND | wx.ALL)
                                                    )
@@ -50,7 +50,7 @@ class LeftNav(TransparentAwareFrame):
             icon = icon.Scale(32, 32, wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
             #icon = wx.Image(curimage, wx.BITMAP_TYPE_ANY).ConvertToBitmap()
             #a = GB.GradientButton(panel, -1, icon, o, size = (150,40))
-            a = CatButton(panel, -1, icon, o, size = (150,40))
+            a = CatButton(panel, -1, icon, o, size = (190,40))
             font = wx.Font(10, wx.DEFAULT, wx.NORMAL, wx.BOLD)
             pencolor = (255,255,255)
             a.SetFont(font)
