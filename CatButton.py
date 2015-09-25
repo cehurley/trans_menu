@@ -88,7 +88,7 @@ class CatButton(wx.lib.agw.gradientbutton.GradientButton):
         font = gc.CreateFont(self.GetFont(), self.GetForegroundColour())
         gc.SetFont(font)
 
-        font = wx.Font(10, wx.DEFAULT, wx.NORMAL, wx.BOLD)
+        font = wx.Font(14, wx.DEFAULT, wx.NORMAL, wx.BOLD)
         pencolor = (255,255,255)
         gc.SetFont(font, pencolor)
 
@@ -116,7 +116,7 @@ class CatButton(wx.lib.agw.gradientbutton.GradientButton):
         #gc.SetPen(wx.WHITE_PEN)
 
         if len(label) <= 16:
-            gc.DrawText(label, 44, 14)
+            gc.DrawText(label, 64, 20)
         else:
             temp = label.split()
             ns = ''
@@ -131,8 +131,8 @@ class CatButton(wx.lib.agw.gradientbutton.GradientButton):
             #print nse
             tw1, th1 = gc.GetTextExtent(ns)
             tw2, th2 = gc.GetTextExtent(nse)
-            gc.DrawText(ns, 44,8)
-            gc.DrawText(nse, 44,20)
+            gc.DrawText(ns, 64,12)
+            gc.DrawText(nse, 64,24)
 
 
 

@@ -7,6 +7,20 @@ from nav import LeftNav
 from links import LinkBox
 
 
+class LeftNavSettings(object):
+    BUTTONWIDTH = 280
+    BUTTONHEIGHT = 60
+    FONTSIZE = 14
+    WINDOWWIDTH = 300
+    WINDOWHEIGHT =1000
+
+class LinkSettings(object):
+    BUTTONWIDTH = 200
+    BUTTONHEIGHT = 130
+    FONTSIZE = 15
+    BUTTONMARGIN = 10
+    LINEBREAK = 15
+
 class TransMenu(object):
 
     def __init__(self):
@@ -25,7 +39,12 @@ class TransMenu(object):
         self.data = mm_menus.getAll()
         style = ( wx.NO_BORDER )
         display_width, display_height = wx.GetDisplaySize()
-        self.back = LeftNav(None, title='LEFTNAV', style = style, pos=(0, 0),size=(200, display_height), data= self.data)
+        self.back = LeftNav(None, title='LEFTNAV',
+                            style = style,
+                            pos=(0, 0),
+                            size=(LeftNavSettings.WINDOWWIDTH, display_height),
+                            data= self.data,
+                            settings=LeftNavSettings)
         self.back.registerListener(self.change_category)
         self.app.MainLoop()
 
@@ -45,10 +64,11 @@ class TransMenu(object):
         if hasattr(self, 'drilldown') == True:
             self.drilldown.Destroy()
         display_width, display_height = wx.GetDisplaySize()
-        self.drilldown = LinkBox(None, style = style, pos=(210, 20), #size=(800,500),
+        self.drilldown = LinkBox(None, style = style, pos=(320, 20), #size=(800,500),
 			                     size=(self.width, display_height),
                                  links=self.cat_tree[msg]['items'], mode=(self.mode, self.width),
-                                 trans=self.trans) #size=(600, display_height),size=(display_width-self.width_sub, display_height),
+                                 trans=self.trans,
+                                 settings=LinkSettings) #size=(600, display_height),size=(display_width-self.width_sub, display_height),
         self.drilldown.SetTransparent(self.trans)
         self.drilldown.registerListener(self.launch_app)
 
@@ -72,5 +92,5 @@ class TransMenu(object):
 if __name__ == '__main__':
     d = TransMenu()
     #set Mode num columns, transparency
-    d.setMode(4,248)
+    d.setMode(5,248)
     d.boot()

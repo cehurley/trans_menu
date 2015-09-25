@@ -20,6 +20,7 @@ class LinkBox(TransparentAwareFrame):
     def __init__(self, *args, **kwargs):
         links = kwargs.pop('links')
         trans = kwargs.pop('trans')
+        self.settings = kwargs.pop('settings')
         self.mode, self.width = kwargs.pop('mode')
         TransparentAwareFrame.__init__(self, *args, **kwargs)
         self.SetBackgroundColour(self.background_color)
@@ -40,34 +41,39 @@ class LinkBox(TransparentAwareFrame):
             i = o['icon']
             curimage = mm_menus.clean_cat_path(i)
             icon = wx.Image(curimage, wx.BITMAP_TYPE_ANY)
-            icon = icon.Scale(48, 48, wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
+            icon = icon.Scale(64, 64, wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
             t = o['title']
             #a = GB.GradientButton(self, -1, icon, t, size=(250,72), pos=(x,y), style=wx.DEFAULT)
-            a = LinkButton(self, -1, icon, t, size=(200,100), pos=(x,y), style=wx.DEFAULT)
+            a = LinkButton(self, -1, icon, t,
+                           size=(self.settings.BUTTONWIDTH,self.settings.BUTTONHEIGHT),
+                           pos=(x,y),
+                           style=wx.DEFAULT,
+                           settings = self.settings)
             self.Bind(wx.EVT_BUTTON, self.OnButton, a)
             
             a.Show()
             self.triggers[t]=o['command']
             
-            x+=210
+            x+=self.settings.BUTTONWIDTH+self.settings.BUTTONMARGIN
             #titleSizer.Add( a, 0, wx.ALL, 5 )
             curnum += 1
             total += 1
             if curnum == row_size:
-                y+=110
-                x = 10
+                y+=self.settings.BUTTONHEIGHT+self.settings.BUTTONMARGIN
+                x = self.settings.BUTTONMARGIN
                 #bSizer.Add(titleSizer, 0, wx.EXPAND)
                 #titleSizer      = wx.BoxSizer(wx.HORIZONTAL)
                 curnum = 0
         #if curnum > 0:
             #bSizer.Add(titleSizer, 0, wx.EXPAND)
             
-        if y == 10:
-            y = 120
+        if y == self.settings.BUTTONMARGIN:
+            y = self.settings.BUTTONHEIGHT+self.settings.BUTTONMARGIN
         if curnum > 0 and total%self.mode > 0 and total > 3:
-            y+=120
+            y+=self.settings.BUTTONHEIGHT+(self.settings.BUTTONMARGIN*2)
         if total < self.mode:
-            self.width = (200*total)+(10*(total+1))
+            self.width = (self.settings.BUTTONWIDTH*total)+(self.settings.BUTTONMARGIN*(total+1))
+            y+=self.settings.BUTTONMARGIN
         self.SetSize((self.width,y))
         self.Show()
             #self.SetSizer( bSizer )

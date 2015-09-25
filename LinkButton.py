@@ -7,7 +7,9 @@ class LinkButton(wx.lib.agw.gradientbutton.GradientButton):
 
 
     def __init__(self, *args, **kwargs):
+        self.settings = kwargs.pop('settings')
         wx.lib.agw.gradientbutton.GradientButton.__init__(self, *args, **kwargs)
+
 
     def OnPaint(self, event):
         """
@@ -88,7 +90,7 @@ class LinkButton(wx.lib.agw.gradientbutton.GradientButton):
         font = gc.CreateFont(self.GetFont(), self.GetForegroundColour())
         gc.SetFont(font)
 
-        font = wx.Font(12, wx.DEFAULT, wx.NORMAL, wx.BOLD)
+        font = wx.Font(self.settings.FONTSIZE, wx.DEFAULT, wx.NORMAL, wx.BOLD)
         pencolor = (255,255,255)
         gc.SetFont(font, pencolor)
 
@@ -115,24 +117,44 @@ class LinkButton(wx.lib.agw.gradientbutton.GradientButton):
 
         #gc.SetPen(wx.WHITE_PEN)
 
-        if len(label) <= 25:
-            gc.DrawText(label, (width-tw)/2 + shadowOffset, (height-th)/2+shadowOffset+30)
+        if len(label) <= self.settings.LINEBREAK:
+            print len(label)
+            gc.DrawText(label, (width-tw)/2 + shadowOffset, (height-(2*th))/2+shadowOffset+40)
         else:
+
+            temp = label.split()
+            holder = ''
+            holder2 = ''
+            x = 0
+            for i in temp:
+                holder2 += i + ' '
+                tw, th = gc.GetTextExtent(holder2)
+                print tw
+                if tw > self.settings.BUTTONWIDTH-10:
+                    break
+                else:
+                    holder = holder2
+                    x+= 1
+            ns = holder
+            nse = ' '.join(temp[x:])
+            '''
+            print len(label)
             temp = label.split()
             ns = ''
             x = 0
             for i in temp:
                 ns += i +' '
                 x += 1
-                if len(ns) > 20:
+                if len(ns) > 15:
                     break
 
             nse = ' '.join(temp[x:])
+            '''
             print nse
             tw1, th1 = gc.GetTextExtent(ns)
             tw2, th2 = gc.GetTextExtent(nse)
-            gc.DrawText(ns, (width-tw1)/2 + shadowOffset, (height-(2*th))/2+shadowOffset+30)
-            gc.DrawText(nse, (width-tw2)/2 + shadowOffset, (height-th + 10)/2+shadowOffset+30)
+            gc.DrawText(ns, (width-tw1)/2 + shadowOffset, (height-(2*th))/2+shadowOffset+40)
+            gc.DrawText(nse, (width-tw2)/2 + shadowOffset, (height-th + 15)/2+shadowOffset+40)
 
 
 
