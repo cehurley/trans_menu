@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc1995ae-3e18-407b-8adb-21cd5c5356fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CatButton.py" afterPath="$PROJECT_DIR$/CatButton.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LinkButton.py" afterPath="$PROJECT_DIR$/LinkButton.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/launchy.py" afterPath="$PROJECT_DIR$/launchy.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/links.py" afterPath="$PROJECT_DIR$/links.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nav.py" afterPath="$PROJECT_DIR$/nav.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mm_menus.py" afterPath="$PROJECT_DIR$/mm_menus.py" />
     </list>
     <ignored path="trans_menu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,14 +50,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LinkButton.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LinkButton.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LinkButton.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41558442">
+            <state vertical-scroll-proportion="0.0">
               <caret line="138" column="33" selection-start-line="138" selection-start-column="33" selection-end-line="138" selection-end-column="33" />
               <folding>
                 <element signature="e#24#33#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mm_menus.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mm_menus.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.56215215">
+              <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,30 +78,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="close_active_app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/close_active_app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding>
-                <element signature="e#23#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bring_to_front.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bring_to_front.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <element signature="e#23#32#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -135,6 +116,7 @@
         <option value="$PROJECT_DIR$/links.py" />
         <option value="$PROJECT_DIR$/launchy.py" />
         <option value="$PROJECT_DIR$/LinkButton.py" />
+        <option value="$PROJECT_DIR$/mm_menus.py" />
       </list>
     </option>
   </component>
@@ -618,6 +600,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/launchy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+          <folding>
+            <element signature="e#24#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nav.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -638,23 +630,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/launchy.py">
+    <entry file="file://$PROJECT_DIR$/LinkButton.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+          <caret line="138" column="33" selection-start-line="138" selection-start-column="33" selection-end-line="138" selection-end-column="33" />
           <folding>
             <element signature="e#24#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LinkButton.py">
+    <entry file="file://$PROJECT_DIR$/mm_menus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41558442">
-          <caret line="138" column="33" selection-start-line="138" selection-start-column="33" selection-end-line="138" selection-end-column="33" />
-          <folding>
-            <element signature="e#24#33#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.56215215">
+          <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

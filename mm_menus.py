@@ -115,15 +115,10 @@ def clean_icon_path(path):
     return 'keepass.png'
 
 def clean_cat_path(cat):
-    if '/' in cat:
+    if check.exists(cat) == True:
         return cat
     else:
-        if 'png' not in cat:
-            cat = cat + '.png'
-        for p in CATICONSPATHS:
-            if check.exists(p+cat) == True:
-                return p+cat
-    return 'keepass.png'
+        return 'keepass.png'
 
 def getAll():
     menu_order = []
